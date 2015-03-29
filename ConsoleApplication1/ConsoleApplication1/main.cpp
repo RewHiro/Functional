@@ -72,11 +72,17 @@ void FuncPtr(){
 //　関数オブジェクト
 class FuncObject{
 	float x, y;
+	FuncObject* test_this = this;
 public:
 	FuncObject():
 		x(0),
 		y(0)
 	{}
+
+	//　this
+	FuncObject& This(){
+		return *test_this;
+	}
 
 	void Show(){
 		std::cout << "x:" << x << "y:" << y << std::endl;
@@ -102,6 +108,7 @@ public:
 };
 
 int main(){
+
 	//FuncPtr();
 
 	//　関数のように振る舞うオブジェクト -> 関数のように振る舞うクラスの理解でもいいかも
