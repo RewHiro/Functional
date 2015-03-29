@@ -1,0 +1,13 @@
+*/Debug
+/Lamda/Debug
+*.opensdf
+*.sdf
+*.sln
+*.v12.suo
+*.vcxproj
+*.vcxproj.filters
+*.tlog
+*.log
+*.obj
+*.idb
+*.pdb
