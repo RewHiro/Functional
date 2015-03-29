@@ -86,11 +86,18 @@ public:
 	void operator()(){
 		std::cout << "x:" << x << "y:" << y << std::endl;
 	}
-	FuncObject& operator()(float x, float y){
+	//　参照無し
+	FuncObject operator()(float x, float y){
 		this->x = x;
 		this->y = y;
 		return *this;
 	}
+	//　参照あり(連続してメソッドを使用したいときに参照にする)
+	//FuncObject& operator()(float x, float y){
+	//	this->x = x;
+	//	this->y = y;
+	//	return *this;
+	//}
 
 };
 
@@ -99,8 +106,11 @@ int main(){
 
 	//　関数のように振る舞うオブジェクト -> 関数のように振る舞うクラスの理解でもいいかも
 	FuncObject obj;
-	obj(1, 1);
+	
+	//　(5,5)の時点で別のFuncObjectが作られてしまう感じ(参照無しの場合)
+	obj(1, 1)(5,5)();
 	obj.Show();
+
 	obj(12,15).Show();
 	obj(10, 12)();
 }
